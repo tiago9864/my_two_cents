@@ -15,7 +15,23 @@ router.get('/posts', function(req, res){
   });
 });
 router.get('/posts/:id', function(req, res){});
-router.post('/posts', function(req, res){});
+router.post('/posts', function(req, res){
+  var post = new Post(req.body);
+  post.postDate = new Date();
+  console.log(req.body);
+  // return res.send('stuff');
+  post.summary = req.body.body.slice(0, 100) + '...';
+  post.save(function(err){
+    if(err){
+      return res.status(500).json({
+        msg: err
+      });
+    }
+    return res.status(201).json({
+        msg:'Success'
+    });
+  });
+});
 router.post('/posts/:id', function(req, res){});
 router.put('/posts/:id', function(req, res){});
 router.delete('/posts/:id', function(req, res){});
