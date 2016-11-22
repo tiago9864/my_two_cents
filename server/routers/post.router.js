@@ -58,14 +58,14 @@ router.put('/posts/:id', function(req, res){
   });
 });
 router.delete('/posts/:id', function(req, res){
-  Post.findOneAndRemove({ _id: req.params.id}, function(err, deletePost){
+  Post.findOneAndRemove({ _id: req.params.id}, function(err, deletedPost){
      if(err){
        return res.status(500).json({
          err: err
        });
      }
-     return res.status(201).json({
-       msg: deletePost
+     return res.status(200).json({
+       msg: deletedPost
      });
    });
 });

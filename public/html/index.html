@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="my_two_cents">
+  <meta charset="utf-8">
+
+   <head>
+     <title>My Two Cents</title>
+   </head>
+  <body>
+
+
+    <body style="background-color:powderblue;">
+      <h1 align="center" >MY TWO CENTS BLOG</h1>
+
+      <div>
+          <div>
+        <input type="text" ng-model="searchBox" class="search-query" style="width: 80px">
+      <button type="submit" class="btn">search</button>
+  </div>
+  </div>
+      <div ng-controller="MainController" align="center">
+
+
+      <p>Title </p><input type="text" ng-model='newPost.title'>
+      <br />
+        <p>Cover</p><input type="text" ng-model='newPost.cover'>
+        <br />
+      <p>Body</p>  <input type="text" ng-model='newPost.body'>
+      <br />
+        <p>Author</p><input type="text" ng-model='newPost.author'>
+        <br />
+        <p>Post-Date</p><input type="text" ng-model='newPost.postDate'>
+          <p>Summary</p><input type="text" ng-model='newPost.summary'>
+        <br />
+        <br />
+
+      <!--<div class="success" align="center" >-->
+        <button ng-click='createPost(newPost)'>Add new Post</button>
+    <button></button>
+
+
+  <br />
+  <br />
+
+        <ul>
+
+          <li ng-repeat='album in posts | filter: searchBox track by $index' >
+          <h2>Blog Title: </h2> <input type="text" ng-show='post.isBeingEdited' ng-model='post.title'>
+            <span ng-hide='post.isBeingEdited'>{{ post.title }}</span>
+            <br />
+
+            <h2>Blog Cover Name:</h2><input type="text" ng-show='post.isBeingEdited' ng-model='post.cover'>
+            <span ng-hide='post.isBeingEdited'>{{ post.cover}}</span>
+
+          <br />
+
+            <h2>Body: </h2><input type="text" ng-show='post.isBeingEdited' ng-model='post.body'>
+            <span ng-hide='post.isBeingEdited'>{{ post.body }}</span>
+            <br />
+
+            <h2>Author: </h2><input type="text" ng-show='post.isBeingEdited' ng-model='post.author'>
+            <span ng-hide='post.isBeingEdited'>{{ post.author }}</span>
+            <br />
+            <button ng-click='deletedPost($index, post)'><p style="color:red;">Delete</p></button>
+            <button ng-click='editPost(post)' ng-hide='post.isBeingEdited'>Edit</button>
+            <button ng-click='savePost($index, post)' ng-show='post.isBeingEdited'>Save</button>
+          </li>
+
+        </ul>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/main.controller.js"></script>
+    <script src="js/services/mytwocents.service.js"></script>
+  </body>
+</html>
