@@ -38,7 +38,15 @@
             console.log(error);
           });
     }
-    function update(id, newPostData){}
+    function update(id, newPostData){
+      $http.put(baseUrl + id, newPostData)
+          .then(function(response){
+            init();
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
     function deleteOne(id){
       $http.delete(baseUrl + id)
           .then(function(response){

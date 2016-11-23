@@ -20,6 +20,17 @@
       <input type="text" ng-model='deleteId'>
       <button class="btn btn-danger" ng-click="delete(deleteId)">&times;</button>
       <hr>
+      Get One:
+      <input type="text" ng-model='getId'>
+      <button class="btn btn-success" ng-click="getOne(getId)">Get That!</button>
+      <hr>
+      Update:
+      <input type="text" ng-model='id'>
+      <input type="text" ng-model='newPostData.author'>
+      <input type="text" ng-model='newPostData.title'>
+      <textarea ng-model='newPostData.body' cols="30" rows="10"></textarea>
+      <button class="btn btn-default" ng-click="updatePost(id, newPostData)"></button>
+      <hr>
       <pre>
         {{ posts | json }}
       </pre>
