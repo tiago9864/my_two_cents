@@ -1,37 +1,33 @@
-
 (function() {
-  angular.module('my_two_cents') //getter syntax
-  .controller('MainController', MainController);
+  angular.module('two-cents')
+      .controller("MainController", MainController);
 
-  MainController.$inject = ['$scope', 'PostService']; //what tools the MainController function needs
+  MainController.$inject = ['$scope', 'PostService'];
 
-  function MainController($scope, PostService){ //$scope is our bridge to the dom
-    $scope.boxes = PostService.get();
-    $scope.createPost = createPost;
-    $scope.deletedPost = deletedPost;
-    $scope.editPost = editPost;
-    $scope.savePost = savePost;
+  function MainController($scope, PostService){
+    $scope.posts = PostService.getAll();
+    $scope.create = create;
+    $scope.delete = deleteOne;
+    $scope.updatePost = updatePost;
 
 
     $scope.$watch(function(){
-  return PostService.get();
-}, function(){
-    $scope.posts = PostService.get();
-});
-  function createPost(newPost){
-    PostService.create(newPost);
-    $scope.newPost = '';
+      return PostService.getAll();
+    }, function(){
+      $scope.posts = PostService.getAll();
+    });
+    function create(newPost){
+      PostService.create(newPost);
+      $scope.newPost = {};
+    }
+    function deleteOne(id){
+      PostService.delete(id);
+      $scope.deleteId = '';
+    }
+    function updatePost(id, updatedPost){
+      PostService.update(id, updatedPost);
+      $scope.updateId= '';
+      $scope.updatedPost = {};
+    }
   }
-  function deletedPost(index, post){
-    PostService.delete(index, post);
-  }
-  function editPost(post){
-    post.isBeingEdited = true;
-  }
-  function savePost(index, post){
-    PostService.update(index, post);//removed the .dec coz data is on the service
-    post.isBeingEdited = false;
-  }
-
-}
 }());
