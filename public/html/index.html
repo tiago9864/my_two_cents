@@ -8,12 +8,13 @@
 </head>
 <body>
     <div ng-controller="MainController">
+      <br />
       Author:
-      <input type="text" ng-model='newPost.author'> <br>
+      <input type="text" ng-model='newPost.author'> <br><br>
       Title:
-      <input type="text" ng-model='newPost.title'> <br>
-      Body:
-      <textarea cols="30" rows="10" ng-model='newPost.body'></textarea> <br>
+      <input type="text" ng-model='newPost.title'> <br> <br>
+      <h4>Body:</h4><br>
+      <textarea cols="30" rows="10" ng-model='newPost.body'></textarea> <br><br>
       <button class="btn btn-default" ng-click='create(newPost)'>Create</button>
       <hr>
       Deleted:
