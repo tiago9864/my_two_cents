@@ -33,6 +33,10 @@ postSchema.pre('findOneAndUpdate', function(){
 this.update({},{ $set: { postDate: new Date() } });
 
 });
+postSchema.post('findOneAndUpdate', function(post){
+
+this.update({},{ $set: { summary: post.body.slice(0,100) + '...'} });
+});
 
 
 var Post = mongoose.model('Post', postSchema);
