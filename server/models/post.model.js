@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
-
-  title:{
+  title: {
     type: String,
     required: true
   },
@@ -15,7 +14,7 @@ var postSchema = new Schema({
     required: true
   },
   author: {
-    type: String,//this type will change to user object
+    type: String, //this type will change to user object
     required: true
   },
   postDate: {
@@ -28,15 +27,10 @@ var postSchema = new Schema({
   }
 });
 
-
 postSchema.pre('findOneAndUpdate', function(){
-this.update({},{ $set: { postDate: new Date() } });
-
+  this.update({},{ $set: { postDate: new Date() } });
 });
-postSchema.post('findOneAndUpdate', function(post){
 
-this.update({},{ $set: { summary: post.body.slice(0,100) + '...'} });
-});
 
 
 var Post = mongoose.model('Post', postSchema);
