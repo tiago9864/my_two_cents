@@ -13,3 +13,6 @@ var user = new User(req.body);
 console.log(user);
 user.setPassword(req.body.password);
 console.log(user);
+var passwordIsValid = user.validPassword('1234');
+console.log(passwordIsValid);
+console.log("JWT", user.generateJwt());
