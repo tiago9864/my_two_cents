@@ -14,7 +14,7 @@ var postSchema = new Schema({
     required: true
   },
   author: {
-    type: String, //this type will change to user object
+    type: Schema.types.ObjectId, //This will allow use to populate the author for a particular post
     required: true
   },
   postDate: {

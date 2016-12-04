@@ -22,6 +22,9 @@ var userSchema = new Schema({
   },
   salt: {
     type: String
+  },
+  posts: {
+    type: [Schema.types.ObjectId]
   }
 });
 
