@@ -24,7 +24,7 @@ var userSchema = new Schema({
     type: String
   },
   posts: {
-    type: [Schema.types.ObjectId]
+    type: [Schema.Types.ObjectId]
   }
 });
 
