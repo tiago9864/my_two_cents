@@ -6,7 +6,10 @@
 
     function RouterConfiguration($routeProvider){
       $routeProvider
-        .when('/', {})
+        .when('/', {
+          templateUrl: 'html/views/home.html',
+          controller: "HomeController"
+        })
         .when('/login', {})
         .when('/signup', {})
         .when('/profile/:username', {})

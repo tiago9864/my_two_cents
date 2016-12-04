@@ -1,3 +1,3 @@
 (function() {
-  angular.module('two-cents', []);  
+  angular.module('two-cents', ['ngRoute']);  
 }());
