@@ -10,7 +10,10 @@
           templateUrl: 'html/views/home.html',
           controller: "HomeController"
         })
-        .when('/login', {})
+        .when('/login', {
+          templateUrl: 'html/views/login.html',
+          controller: "LoginController"
+        })
         .when('/signup', {})
         .when('/profile/:username', {})
         .otherwise({
