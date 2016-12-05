@@ -14,7 +14,10 @@
           templateUrl: 'html/views/login.html',
           controller: "LoginController"
         })
-        .when('/signup', {})
+        .when('/signup', {
+          templateUrl: 'html/views/signup.html',
+          controller: 'SignUpController'
+        })
         .when('/profile/:username', {})
         .otherwise({
           redirectTo: '/'
