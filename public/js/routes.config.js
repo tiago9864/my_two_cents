@@ -26,6 +26,10 @@
           templateUrl: 'html/views/create.html',
           controller: 'CreateController'
         })
+        .when('/edit/:postId', {
+          templateUrl: 'html/views/edit.html',
+          controller: 'EditController'
+        })
         .otherwise({
           redirectTo: '/'
         })
