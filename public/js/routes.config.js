@@ -22,6 +22,10 @@
           templateUrl: 'html/views/profile.html',
           controller: 'ProfileController'
         })
+        .when('/create', {
+          templateUrl: 'html/views/create.html',
+          controller: 'CreateController'
+        })
         .otherwise({
           redirectTo: '/'
         })
