@@ -5,7 +5,11 @@
     NavigationDirective.$inject = [];
 
     function NavigationDirective(){
-      
+      return {
+        restrict: 'EA',
+        templateUrl: 'js/directives/navigation/navigation.view.html',
+        controller: 'NavigationController'
+      }
     }
 
 }());
