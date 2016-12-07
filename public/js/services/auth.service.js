@@ -55,7 +55,7 @@
     function login(user){
       return $http.post('/users/login', user)
                   .then(function(response){
-                    var token = response.token;
+                    var token = response.data.token;
                     saveToken(token);
                   });
     }
