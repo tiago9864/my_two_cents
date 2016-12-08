@@ -15,7 +15,8 @@
       create: create,
       update: update,
       delete: deleteOne,
-      getSelectedPost: getSelectedPost
+      getSelectedPost: getSelectedPost,
+      getPostsByUserId: getPostsByUserId
     };
 
     function getSelectedPost(){
@@ -55,7 +56,7 @@
       return $http.put(baseUrl + id, newPostData)
           .then(function(response){
             init();
-          })
+          });
 
     }
     function deleteOne(id){
@@ -66,6 +67,9 @@
           .catch(function(err){
             console.log(err);
           });
+    }
+    function getPostsByUserId(userId){
+      return posts;
     }
   }
 }());
