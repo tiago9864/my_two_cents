@@ -19,7 +19,7 @@
     };
 
     function getSelectedPost(){
-      return selectedPost; 
+      return selectedPost;
     }
     function init(){
       $http.get(baseUrl)
@@ -52,13 +52,11 @@
           });
     }
     function update(id, newPostData){
-      $http.put(baseUrl + id, newPostData)
+      return $http.put(baseUrl + id, newPostData)
           .then(function(response){
             init();
           })
-          .catch(function(err){
-            console.log(err);
-          });
+
     }
     function deleteOne(id){
       $http.delete(baseUrl + id)
